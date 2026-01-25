@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <title>Challenge: Fancy font families</title>
+    <style>
+        #flinstones {
+            font-family: serif;
+        }
+
+        #jetsons {
+            font-family: monospace;
+        }
+
+        #addams {
+            font-family: cursive;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .big {
+            font-size: 20px;
+        }
+
+        .bigger {
+            font-size: 30px;
+        }
+
+        .first-sentence {
+            font-weight: bold;
+        }
+
+        .info {
+            background-color: darkgreen;
+            width: 70%;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .pic {
+            width: 70%;
+        }
+
+        .photo-gallery {
+            background: rgb(255, 254, 217);
+            padding: 2px;
+        }
+
+        .photo {
+            width: 200px;
+            border: 2px solid black;
+            margin: 2px;
+
+        }
+
+        #greeting {
+            background: rgb(255, 255, 0);
+            border: 2px solid black;
+            font-family: "Comic Sans MS", fantasy;
+            padding: 5px;
+            width: 262px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            z-index: 1;
+        }
+
+        #creature {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+
+        }
+
+        #cloud-pic {
+            width: 70px;
+            float: left;
+            margin: 10px;
+        }
+
+        #cloud-sidebar {
+            background: rgb(255, 255, 219);
+            float: right;
+            width: 50px;
+            padding: 40px;
+            margin: 10px;
+        }
+
+            .image-small {
+                width: 150px;
+            }
+
+            .image-medium {
+                width: 200px;
+            }
+
+            .black-frame {
+                border: 8px double rgb(38, 38, 38);
+            }
+
+            .gold-frame {
+                border: 10px ridge rgb(255, 183, 0);
+            }
+
+            .silver-frame {
+                border: 10px groove rgb(204, 204, 204);
+            }
+        h2.metal {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+        h2.non-metal {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+        }
+        h2.semi-metal {
+            background-color: purple;
+            color: white;
+            font-weight: bold;
+        }
+        table .emperor {
+            font-family: cursive;
+            background-color:red;
+        }
+
+        table .reign {
+            font-family: monospace;
+            background-color: yellow;
+        }
+        h1, h2 {
+            font-family: fantasy;
+            border-bottom: 1px solid rgb(230, 230, 230);
+            padding: 3px;
+        }
+
+        h1:hover, h2:hover {
+            background-color: rgb(248, 255, 199);
+        }
+    </style>
+</head>
+<body>
+
+<p>Some fun theme songs of well known TV families...</p>
+
+<h4>The Flinstones</h4>
+<p id="flinstones">
+    Meet the Flintstones<br>
+    They're the modern stone age family<br>
+    From the town of Bedrock<br>
+    They're a page right of history</p>
+
+<h4>The Jetsons</h4>
+<p id="jetsons">
+    Meet George Jetson,<br>
+    His Boy Elroy,<br>
+    Daughter Judy,<br>
+    Jane, His wife
+</p>
+
+<h4>The Addams Family</h4>
+<p id="addams">
+    They're creepy and they're kooky,<br>
+    mysterious and spooky<br>
+    They're all together ooky,<br>
+    the Addams Family
+</p>
+
+<p>When I was a little kid,
+    a "<em class="big">diminutive juvenile</em>," <br>
+    I liked my folks to read to me,
+    I was an <em class="big">"eager bibliophile."</em> <br>
+    Now I love words for how they sound <br>
+    And how they <em class="big">"communicate."</em> <br>
+    Perhaps I should explain myself,
+    that is, <em class="big">"elucidate."</em> <br>
+    Great big words, I like <em class="big">big</em> words. <br>
+    Letter by letter, the <em class="bigger"> bigger, </em> the better <br>
+    Great big words. La la la la la la la la la la!</p>
+
+<h1>Groupers</h1>
+<div class="info">
+    <p>
+        <span class="first-sentence">
+        Groupers are teleosts (ray-finned fishes),
+            typically having a stout body and a large mouth. </span>
+        They can be quite large, and lengths
+        over a meter and weights up to 100 kg are not uncommon, though obviously in such l
+        arge group, species vary considerably. They swallow prey rather than biting pieces of
+        f it. They do not have many teeth on the edges of their jaws, but they have heavy crushing
+        tooth plates inside the pharynx. They habitually eat fish, octopuses, and crustaceans.
+        Reports of fatal attacks on humans by the largest species, the giant grouper
+        (Epinephelus lanceolatus) are unconfirmed.</p>
+</div>
+
+<p>
+        <span class="first-sentence">
+        Their mouths and gills form a powerful sucking system that sucks their prey
+            in from a distance. </span> They also use their mouths to dig into sand to
+    form their shelters under big rocks, jetting it out through their gills. Their gill
+    muscles are so powerful, it is nearly impossible to pull them out of a cave if they feel
+    attacked and extend those muscles to lock themselves in.</p>
+<img class="pic" src="https://www.kasandbox.org/programming-images/landscapes/beach-in-hawaii.png"
+     alt="Photo of rocky ocean beach in Hawaii">
+
+<a href="http://en.wikipedia.org/wiki/Grouper">Read more on Wikipedia</a>
+<h1>Boxers are beautiful?</h1>
+
+<div class="photo-gallery">
+
+    <img class="photo" src="https://www.kasandbox.org/programming-images/animals/boxer-getting-tan.png" alt=" ">
+
+    <img class="photo" src="https://www.kasandbox.org/programming-images/animals/boxer-laying-down.png" alt=" ">
+
+    <img class="photo" src="https://www.kasandbox.org/programming-images/animals/boxer-wagging-tongue.png" alt=" ">
+
+</div>
+<img id="planet" src="https://www.kasandbox.org/programming-images/space/planet.png" width="300">
+
+<div id="greeting">
+    <p>Hello! Welcome to position planet!</p>
+</div>
+
+<img id="creature" src="https://www.kasandbox.org/programming-images/avatars/mr-pink.png">
+<img id="cloud-pic" src="https://www.kasandbox.org/programming-images/landscapes/clouds-from-plane.png">
+
+
+<div id="cloud-sidebar">
+    <h5>Why are some clouds yellow?</h5>
+    <p>Yellowish clouds may occur in the late spring through early fall months during forest fire season. The yellow
+        color is due to the presence of pollutants in the smoke. Yellowish clouds caused by the presence of nitrogen
+        dioxide are sometimes seen in urban areas with high air pollution levels.
+    </p>
+</div>
+
+<p>In meteorology, a cloud is a visible mass of liquid droplets or frozen crystals made of water or various chemicals
+    suspended in the atmosphere above the surface of a planetary body. These suspended particles are also known as
+    aerosols and are studied in the cloud physics branch of meteorology.</p>
+
+<p>Terrestrial cloud formation is the result of air in Earth's atmosphere becoming saturated due to either or both of
+    two processes: cooling of the air and adding water vapor. With sufficient saturation, precipitation will fall to the
+    surface.</p>
+<h1>A classy gallery</h1>
+
+<img class="image-small black-frame" src="https://www.kasandbox.org/programming-images/animals/cat.png">
+
+<img class="image-small gold-frame" src="https://www.kasandbox.org/programming-images/animals/fox.png">
+
+<img class="image-medium silver-frame" src="https://www.kasandbox.org/programming-images/animals/penguins.png">
+<h1>The Periodic Table</h1>
+
+<p>
+    There are three broad classes of elements:
+    <strong class="metal">metals</strong>,
+    <strong class="non-metal">non-metals</strong>,
+    and <strong class="semi-metal"> semi - metal </strong>.
+</p>
+
+<h2 class="metal">Metals</h2>
+
+<ul>
+    <li>Solid</li>
+    <li>Good conductors of electricity</li>
+    <li>Ductile</li>
+    <li>Malleable</li>
+</ul>
+
+<h2 class="non-metal">Non-metals</h2>
+
+<ul>
+    <li>Brittle</li>
+    <li>Poor conductors</li>
+</ul>
+
+<h2 class="semi-metal">Semi-metals (Metalloids)</h2>
+
+<ul>
+    <li>Partially conduct electricity</li>
+</ul>
+
+<h1>Descendants of Khan</h1>
+
+<p><strong class="emperor">Genghis Khan</strong> (<span class="reign">1206-1227</span>) was a emperor who had many sons and daughters, and many famous emperors are descended from him. (But not Sal Khan!)</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Reign</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="emperor">Ögedei Khan</td>
+        <td class="reign">1229-1241</td>
+    </tr>
+    <tr>
+        <td class="emperor">Kublai Khan</td>
+        <td class="reign">1260-1294</td>
+    </tr>
+    <tr>
+        <td class="emperor">Temür Khan</td>
+        <td class="reign">1294-1307</td>
+    </tr>
+    </tbody>
+</table>
+<h1>Animal group names</h1>
+
+<p>For many species of animals, there are names that we use to refer to a group of them - like a flock of birds. Here are a few you might not know.</p>
+
+<h2>A skulk of foxes</h2>
+
+<p>Also called a "leash."</p>
+
+<img src="https://www.kasandbox.org/programming-images/animals/fox.png">
+<img src="https://www.kasandbox.org/programming-images/animals/fox.png">
+
+<h2>A clowder of cats</h2>
+
+<p>Also called a "pounce", "glaring", "kindle", or "clutter."</p>
+
+<img src="https://www.kasandbox.org/programming-images/animals/cat.png">
+<img src="https://www.kasandbox.org/programming-images/animals/cat.png">
+
+<p>
+    <a href="http://en.wikipedia.org/wiki/List_of_animal_names">Learn more on Wikipedia</a>
+</p>
+
+</body>
+</html>
