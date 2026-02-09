@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operator</title>
+</head>
+<body>
+<script>
+  alert( true || true );   // true
+  alert( false || true );  // true
+  alert( true || false );  // true
+  alert( false || false ); // false
+  let hour = 12;
+  let isWeekend = true;
+
+  if (hour < 10 || hour > 18 || isWeekend) {
+    alert( 'The office is closed.' ); // it is the weekend
+  }
+  let minute = 30;
+  if (hour == 12 && minute == 30) {
+    alert( 'The time is 12:30' );
+  }
+  let firstName = null;
+  let lastName = null;
+  let nickName = "Supercoder";
+
+  // shows the first defined value:
+  alert(firstName ?? lastName ?? nickName ?? "Anonymous");
+
+  let i = 0;
+  while (i < 3) { // shows 0, then 1, then 2
+    alert( i );
+    i++;
+  }
+  let i = 0;
+  do {
+    alert( i );
+    i++;
+  } while (i < 3);
+
+  for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+    alert(i);
+  }
+  let sum = 0;
+
+  while (true) {
+
+    let value = +prompt("Enter a number", '');
+
+    if (!value) break; // (*)
+
+    sum += value;
+
+  }
+  alert( 'Sum: ' + sum );
+
+  for (let i = 0; i < 10; i++) {
+
+    // if true, skip the remaining part of the body
+    if (i % 2 == 0) continue;
+
+    alert(i); // 1, then 3, 5, 7, 9
+  }
+  if (i > 5) {
+    alert(i);
+  } else {
+    continue;
+  }
+  outer: for (let i = 0; i < 3; i++) {
+
+    for (let j = 0; j < 3; j++) {
+
+      let input = prompt(`Value at coords (${i},${j})`, '');
+
+      // if an empty string or canceled, then break out of both loops
+      if (!input) break outer; // (*)
+
+      // do something with the value...
+    }
+  }
+
+  alert('Done!');
+  let a = 2 + 2;
+
+  switch (a) {
+    case 3:
+      alert( 'Too small' );
+      break;
+    case 4:
+      alert( 'Exactly!' );
+      break;
+    case 5:
+      alert( 'Too big' );
+      break;
+    default:
+      alert( "I don't know such values" );
+  }
+  let a = 2 + 2;
+
+  switch (a) {
+    case 3:
+      alert( 'Too small' );
+    case 4:
+      alert( 'Exactly!' );
+    case 5:
+      alert( 'Too big' );
+    default:
+      alert( "I don't know such values" );
+  }
+  alert( 'Exactly!' );
+  alert( 'Too big' );
+  alert( "I don't know such values" );
+
+  let arg = prompt("Enter a value?");
+  switch (arg) {
+    case '0':
+    case '1':
+      alert( 'One or zero' );
+      break;
+
+    case '2':
+      alert( 'Two' );
+      break;
+
+    case 3:
+      alert( 'Never executes!' );
+      break;
+    default:
+      alert( 'An unknown value' );
+  }
+  function showMessage() {
+    alert( 'Hello everyone!' );
+  }
+
+  showMessage();
+  showMessage();
+  let userName = 'John';
+
+  function showMessage() {
+    let message = 'Hello, ' + userName;
+    alert(message);
+  }
+
+  showMessage(); // Hello, John
+  let userName = 'John';
+
+  function showMessage() {
+    userName = "Bob"; // (1) changed the outer variable
+
+    let message = 'Hello, ' + userName;
+    alert(message);
+  }
+
+  alert( userName ); // John before the function call
+
+  showMessage();
+
+  alert( userName ); // Bob, the value was modified by the function
+  function sayHi() {   // (1) create
+    alert( "Hello" );
+  }
+
+  let func = sayHi;    // (2) copy
+
+  func(); // Hello     // (3) run the copy (it works)!
+  sayHi(); // Hello
+  function ask(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+  }
+
+  function showOk() {
+    alert( "You agreed." );
+  }
+
+  function showCancel() {
+    alert( "You canceled the execution." );
+  }
+
+  // usage: functions showOk, showCancel are passed as arguments to ask
+  ask("Do you agree?", showOk, showCancel);
+
+  function ask(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+  }
+
+  ask(
+          "Do you agree?",
+          function() { alert("You agreed."); },
+          function() { alert("You canceled the execution."); }
+  }
+
+  let age = prompt("What is your age?", 18);
+
+  let welcome;
+
+  if (age < 18) {
+
+    welcome = function() {
+      alert("Hello!");
+    };
+
+  } else {
+
+    welcome = function() {
+      alert("Greetings!");
+    };
+
+  }
+
+  welcome(); // ok now
+  let age = prompt("What is your age?", 18);
+
+  let welcome = (age < 18) ?
+          () => alert('Hello!') :
+          () => alert("Greetings!");
+
+  welcome();
+
+  let userName = prompt("Your name?", "Alice");
+  let isTeaWanted = confirm("Do you want some tea?");
+
+  alert( "Visitor: " + userName ); // Alice
+  alert( "Tea wanted: " + isTeaWanted ); // true
+
+
+</script>
+</body>
+</html>

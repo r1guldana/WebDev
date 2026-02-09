@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let billion = 1e9;  // 1 billion, literally: 1 and 9 zeroes
+
+    alert(7.3e9);  // 7.3 billions (same as 7300000000 or 7_300_000_000)
+    alert(0xff); // 255
+    alert(0xFF); // 255 (the same, case doesn't matter)
+    let a = 0b11111111; // binary form of 255
+    let b = 0o377; // octal form of 255
+
+    alert(a == b); // true, the same number 255 at both sides
+    let num = 255;
+
+    alert(num.toString(16));  // ff
+    alert(num.toString(2));   // 11111111
+    alert(0.1.toString(2)); // 0.0001100110011001100110011001100110011001100110011001101
+    alert(0.2.toString(2)); // 0.001100110011001100110011001100110011001100110011001101
+    alert((0.1 + 0.2).toString(2));
+    let sum = 0.1 + 0.2;
+    alert(sum.toFixed(2)); // "0.30"
+    alert((0.1 * 10 + 0.2 * 10) / 10); // 0.3
+    alert((0.28 * 100 + 0.14 * 100) / 100); // 0.4200000000000001
+    alert(isNaN(NaN)); // true
+    alert(isNaN("str")); // true
+    alert(NaN === NaN); // false
+    alert(isFinite("15")); // true
+    alert(isFinite("str")); // false, because a special value: NaN
+    alert(isFinite(Infinity)); // false, because a special value: Infinity
+
+</script>
+<script>
+    let num = +prompt("Enter a number", '');
+
+    // will be true unless you enter Infinity, -Infinity or not a number
+    alert(isFinite(num));
+    alert(Number.isNaN(NaN)); // true
+    alert(Number.isNaN("str" / 2)); // true
+
+    // Note the difference:
+    alert(Number.isNaN("str")); // false, because "str" belongs to the string type, not the number type
+    alert(isNaN("str")); // true, because isNaN converts string "str" into a number and gets NaN as a result of this conversion
+    alert(Number.isFinite(123)); // true
+    alert(Number.isFinite(Infinity)); // false
+    alert(Number.isFinite(2 / 0)); // false
+
+    // Note the difference:
+    alert(Number.isFinite("123")); // false, because "123" belongs to the string type, not the number type
+    alert(isFinite("123"));
+    alert(+"100px"); // NaN
+    alert(parseInt('100px')); // 100
+    alert(parseFloat('12.5em')); // 12.5
+
+    alert(parseInt('12.3')); // 12, only the integer part is returned
+    alert(parseFloat('12.3.4'));
+    alert(parseInt('0xff', 16)); // 255
+    alert(parseInt('ff', 16)); // 255, without 0x also works
+
+    alert(parseInt('2n9c', 36)); // 123456
+    alert(Math.random()); // 0.1234567894322
+    alert(Math.random()); // 0.5435252343232
+    alert(Math.random()); // ... (any random numbers)
+    alert(Math.max(3, 5, -10, 0, 1)); // 5
+    alert(Math.min(1, 2)); // 1
+    alert(Math.pow(2, 10)); // 2 in power 10 = 1024
+    alert(1.35.toFixed(1)); // 1.4
+    alert(6.35.toFixed(1)); // 6.3
+
+</script>
+<script>
+    function sum(a, b) {
+        return a + b;
+    }
+
+    alert(`1 + 2 = ${sum(1, 2)}.`); // 1 + 2 = 3.
+</script>
+<script>
+    let guestList = `Guests:
+ * John
+ * Pete
+ * Mary
+`;
+
+    alert(guestList); // a list of guests, multiple lines
+    let str1 = "Hello\nWorld"; // two lines using a "newline symbol"
+
+    // two lines using a normal newline and backticks
+    let str2 = `Hello
+World`;
+
+    alert(str1 == str2); // true
+    alert(`The backslash: \\`); // The backslash: \
+    alert('I\'m the Walrus!'); // I'm the Walrus!
+    alert("I'm the Walrus!"); // I'm the Walrus!
+    alert(`My\n`.length); // 3
+</script>
+<script>
+    let str = `Hello`;
+
+    // the first character
+    alert(str[0]); // H
+    alert(str.at(0)); // H
+
+    // the last character
+    alert(str[str.length - 1]); // o
+    alert(str.at(-1));
+
+    alert(str[-2]); // undefined
+    alert(str.at(-2)); // l
+    for (let char of "Hello") {
+        alert(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+    }
+</script>
+<script>
+    let str = 'Hi';
+
+    str = 'h' + str[1]; // replace the string
+
+    alert(str); // hi
+    alert('Interface'.toUpperCase()); // INTERFACE
+    alert('Interface'.toLowerCase()); // interface
+    alert('Interface'[0].toLowerCase()); // 'i'
+
+</script>
+<script>
+    let str = 'Widget with id';
+
+    alert(str.indexOf('Widget')); // 0, because 'Widget' is found at the beginning
+    alert(str.indexOf('widget')); // -1, not found, the search is case-sensitive
+
+    alert(str.indexOf("id"));
+    alert(str.indexOf('id', 2)) // 12
+</script>
+<script>
+    let str = 'As sly as a fox, as strong as an ox';
+
+    let target = 'as'; // let's look for it
+
+    let pos = 0;
+    while (true) {
+        let foundPos = str.indexOf(target, pos);
+        if (foundPos == -1) break;
+
+        alert(`Found at ${foundPos}`);
+        pos = foundPos + 1; // continue the search from the next position
+        let pos = -1;
+        while ((pos = str.indexOf(target, pos + 1)) != -1) {
+            alert(pos);
+        }
+    }
+
+</script>
+<script>
+    let str = "Widget with id";
+
+    if (str.indexOf("Widget") != -1) {
+        alert("We found it"); // works now!
+    }
+    alert("Widget with id".includes("Widget")); // true
+
+    alert("Hello".includes("Bye")); // false
+    alert("Widget".startsWith("Wid")); // true, "Widget" starts with "Wid"
+    alert("Widget".endsWith("get")); // true, "Widget" ends with "get"
+
+</script>
+<script>
+    let str = "stringify";
+    alert(str.slice(0, 5)); // 'strin', the substring from 0 to 5 (not including 5)
+    alert(str.slice(0, 1));
+    alert(str.slice(2));
+    alert(str.slice(-4, -1)); // 'gif'
+    // these are same for substring
+    alert(str.substring(2, 6)); // "ring"
+    alert(str.substring(6, 2)); // "ring"
+
+    // ...but not for slice:
+    alert(str.slice(2, 6)); // "ring" (the same)
+    alert(str.slice(6, 2)); // "" (an empty string)
+    alert(str.substr(2, 4));
+    alert(str.substr(-4, 2));
+    alert('Österreich' > 'Zealand'); // true
+    // different case letters have different codes
+    alert("Z".codePointAt(0)); // 90
+    alert("z".codePointAt(0)); // 122
+    alert("z".codePointAt(0).toString(16));
+    alert(String.fromCodePoint(90)); // Z
+    alert(String.fromCodePoint(0x5a));
+
+</script>
+<script>
+    let str = '';
+
+    for (let i = 65; i <= 220; i++) {
+        str += String.fromCodePoint(i);
+    }
+    alert(str);
+    // Output:
+    // ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+    // ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜ
+    alert('Österreich'.localeCompare('Zealand')); // -1
+</script>
+<script>
+    let fruits = ["Apple", "Orange", "Plum"];
+
+    alert(fruits[0]); // Apple
+    alert(fruits[1]); // Orange
+    alert(fruits[2]); // Plum
+    fruits[2] = 'Pear';
+    fruits[3] = 'Lemon';
+    alert(fruits.length); // 3
+    alert(fruits); // Apple,Orange,Plum
+    let arr = ['Apple', {name: 'John'}, true, function () {
+        alert('hello');
+    }];
+
+    // get the object at index 1 and then show its name
+    alert(arr[1].name); // John
+
+    // get the function at index 3 and run it
+    arr[3](); // hello
+    alert(fruits[fruits.length - 1]);
+    alert(fruits.at(-1));
+    alert(fruits.pop()); // remove "Pear" and alert it
+
+    alert(fruits);
+    fruits.push("Pear");
+
+    alert(fruits);
+    alert(fruits.shift()); // remove Apple and alert it
+
+    alert(fruits); // Orange, Pear
+    fruits.unshift('Apple');
+
+    alert(fruits); // Apple, Orange, Pear
+    fruits.push("Orange", "Peach");
+    fruits.unshift("Pineapple", "Lemon");
+
+    // ["Pineapple", "Lemon", "Apple", "Orange", "Peach"]
+    alert(fruits);
+    alert(arr === fruits); // true
+
+    arr.push("Pear"); // modify the array by reference
+
+    alert(fruits);
+
+</script>
+<script>
+    let fruits = []; // make an array
+
+    fruits[99999] = 5; // assign a property with the index far greater than its length
+
+    fruits.age = 25;
+    let arr = ["Apple", "Orange", "Pear"];
+
+    for (let i = 0; i < arr.length; i++) {
+        alert(arr[i]);
+    }
+    fruits = ["Apple", "Orange", "Plum"];
+
+    // iterates over array elements
+    for (let fruit of fruits) {
+        alert(fruit);
+    }
+    arr = ["Apple", "Orange", "Pear"];
+
+    for (let key in arr) {
+        alert(arr[key]); // Apple, Orange, Pear
+    }
+    fruits[123] = "Apple";
+
+    alert(fruits.length);
+    arr.length = 2; // truncate to 2 elements
+    alert(arr); // [1, 2]
+
+    arr.length = 5; // return length back
+    alert(arr[3]);
+
+</script>
+<script>
+    let arr = new Array("Apple", "Pear", "etc");
+    alert(arr[0]); // undefined! no elements.
+
+    alert(arr.length);
+    let matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    alert(matrix[0][1]);
+    arr = [1, 2, 3];
+
+    alert(arr); // 1,2,3
+    alert(String(arr) === '1,2,3'); // true
+    alert([] + 1); // "1"
+    alert([1] + 1); // "11"
+    alert([1, 2] + 1); // "1,21"
+    alert("" + 1); // "1"
+    alert("1" + 1); // "11"
+    alert("1,2" + 1); // "1,21"
+    alert([] == []); // false
+    alert([0] == [0]); // false
+    alert(0 == []); // true
+
+    alert('0' == []); // false
+    alert(0 == ''); // true, as '' becomes converted to number 0
+
+    alert('0' == ''); // false, no type conversion, different strings
+
+</script>
+<script>
+    let arr = ["I", "go", "home"];
+
+    delete arr[1]; // remove "go"
+
+    alert(arr[1]); // undefined
+
+    // now arr = ["I",  , "home"];
+    alert(arr.length); // 3
+
+    arr.splice(1, 1); // from index 1 remove 1 element
+
+    alert(arr); // ["I", "JavaScript"
+    arr.splice(0, 3, "Let's", "dance");
+
+    alert(arr)
+    let removed = arr.splice(0, 2);
+
+    alert(removed);
+    // then insert "complex" and "language"
+    arr.splice(2, 0, "complex", "language");
+
+    alert(arr);
+    arr.splice(-1, 0, 3, 4);
+
+    alert(arr);
+</script>
+<script>
+    let arr = ["t", "e", "s", "t"];
+
+    alert(arr.slice(1, 3)); // e,s (copy from 1 to 3)
+
+    alert(arr.slice(-2))
+    alert(arr.concat([3, 4])); // 1,2,3,4
+
+    // create an array from: arr and [3,4] and [5,6]
+    alert(arr.concat([3, 4], [5, 6])); // 1,2,3,4,5,6
+
+    // create an array from: arr and [3,4], then add values 5 and 6
+    alert(arr.concat([3, 4], 5, 6)); // 1,2,3,4,5,6
+    let arrayLike = {
+        0: "something",
+        length: 1
+    };
+
+    alert(arr.concat(arrayLike));
+    ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+        alert(`${item} is at index ${index} in ${array}`);
+    });
+
+</script>
+<script>
+    let arr = [1, 0, false];
+
+    alert(arr.indexOf(0)); // 1
+    alert(arr.indexOf(false)); // 2
+    alert(arr.indexOf(null)); // -1
+
+    alert(arr.includes(1)); // true
+    let fruits = ['Apple', 'Orange', 'Apple']
+
+    alert(fruits.indexOf('Apple')); // 0 (first Apple)
+    alert(fruits.lastIndexOf('Apple')); // 2 (last Apple)
+    const arr = [NaN];
+    alert(arr.indexOf(NaN)); // -1 (wrong, should be 0)
+    alert(arr.includes(NaN));// true (correct)
+    let users = [
+        {id: 1, name: "John"},
+        {id: 2, name: "Pete"},
+        {id: 3, name: "Mary"}
+    ];
+
+    let user = users.find(item => item.id == 1);
+
+    alert(user.name); // John
+    alert(users.findIndex(user => user.name == 'John')); // 0
+
+    // Find the index of the last John
+    alert(users.findLastIndex(user => user.name == 'John')); // 3
+    let someUsers = users.filter(item => item.id < 3);
+
+    alert(someUsers.length); // 2
+    function compare(a, b) {
+        if (a > b) return 1; // if the first value is greater than the second
+        if (a == b) return 0; // if values are equal
+        if (a < b) return -1; // if the first value is less than the second
+    }
+    function compareNumeric(a, b) {
+        if (a > b) return 1;
+        if (a == b) return 0;
+        if (a < b) return -1;
+    }
+    let arr = [1, 2, 15];
+    arr.sort(compareNumeric);
+    alert(arr);  // 1, 2, 15
+    [1, -2, 15, 2, 0, 8].sort(function (a, b) {
+        alert(a + " <> " + b);
+        return a - b;
+    });
+</script>
+<script>
+    let range = {
+        from: 1,
+        to: 5
+    };
+
+    // 1. call to for..of initially calls this
+    range[Symbol.iterator] = function() {
+
+        // ...it returns the iterator object:
+        // 2. Onward, for..of works only with the iterator object below, asking it for next values
+        return {
+            current: this.from,
+            last: this.to,
+
+            // 3. next() is called on each iteration by the for..of loop
+            next() {
+                // 4. it should return the value as an object {done:.., value :...}
+                if (this.current <= this.last) {
+                    return { done: false, value: this.current++ };
+                } else {
+                    return { done: true };
+                }
+            }
+        };
+    };
+    // now it works!
+    for (let num of range) {
+        alert(num); // 1, then 2, 3, 4, 5
+    }
+    let arrayLike = {
+        0: "Hello",
+        1: "World",
+        length: 2
+    };
+
+    let arr = Array.from(arrayLike); // (*)
+    alert(arr.pop()); // World (method works)
+    let str = '𝒳😂';
+
+    // splits str into array of characters
+    let chars = Array.from(str);
+
+    alert(chars[0]); // 𝒳
+    alert(chars[1]); // 😂
+    alert(chars.length); // 2
+    function slice(str, start, end) {
+        return Array.from(str).slice(start, end).join('');
+    }
+
+    str = '𝒳😂𩷶';
+
+    alert( slice(str, 1, 3) ); // 😂𩷶
+
+    // the native method does not support surrogate pairs
+    alert( str.slice(1, 3) ); // garbage (two pieces from different surrogate pairs)
+
+</script>
+<script>
+    let map = new Map();
+
+    map.set('1', 'str1');   // a string key
+    map.set(1, 'num1');     // a numeric key
+    map.set(true, 'bool1'); // a boolean key
+
+    // remember the regular Object? it would convert keys to string
+    // Map keeps the type, so these two are different:
+    alert( map.get(1)   ); // 'num1'
+    alert( map.get('1') ); // 'str1'
+
+    alert( map.size ); // 3
+    let john = { name: "John" };
+
+    // for every user, let's store their visits count
+    let visitsCountMap = new Map();
+
+    // john is the key for the map
+    visitsCountMap.set(john, 123);
+
+    alert( visitsCountMap.get(john) ); // 123
+    let ben = { name: "Ben" };
+
+    let visitsCountObj = {}; // try to use an object
+
+    visitsCountObj[ben] = 234; // try to use ben object as the key
+    visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
+
+    // That's what got written!
+    alert( visitsCountObj["[object Object]"] ); // 123
+    let recipeMap = new Map([
+        ['cucumber', 500],
+        ['tomatoes', 350],
+        ['onion',    50]
+    ]);
+
+    // iterate over keys (vegetables)
+    for (let vegetable of recipeMap.keys()) {
+        alert(vegetable); // cucumber, tomatoes, onion
+    }
+
+    // iterate over values (amounts)
+    for (let amount of recipeMap.values()) {
+        alert(amount); // 500, 350, 50
+    }
+
+    // iterate over [key, value] entries
+    for (let entry of recipeMap) { // the same as of recipeMap.entries()
+        alert(entry); // cucumber,500 (and so on)
+    }
+    let map = new Map([
+        ['1',  'str1'],
+        [1,    'num1'],
+        [true, 'bool1']
+    ]);
+
+    alert( map.get('1') ); // str1
+    let obj = {
+        name: "John",
+        age: 30
+    };
+
+    let map = new Map(Object.entries(obj));
+
+    alert( map.get('name') ); // John
+    let prices = Object.fromEntries([
+        ['banana', 1],
+        ['orange', 2],
+        ['meat', 4]
+    ]);
+
+    // now prices = { banana: 1, orange: 2, meat: 4 }
+
+    alert(prices.orange); // 2
+    let map = new Map();
+    map.set('banana', 1);
+    map.set('orange', 2);
+    map.set('meat', 4);
+
+    let obj = Object.fromEntries(map.entries());
+    alert(obj.orange);
+    obj = Object.fromEntries(map); // omit .entries()
+    let set = new Set();
+
+    let john = { name: "John" };
+    let pete = { name: "Pete" };
+    let mary = { name: "Mary" };
+
+    // visits, some users come multiple times
+    set.add(john);
+    set.add(pete);
+    set.add(mary);
+    set.add(john);
+    set.add(mary);
+
+    // set keeps only unique values
+    alert( set.size ); // 3
+
+    for (let user of set) {
+        alert(user.name); // John (then Pete and Mary)
+    }
+    let set = new Set(["oranges", "apples", "bananas"]);
+
+    for (let value of set) alert(value);
+
+    // the same with forEach:
+    set.forEach((value, valueAgain, set) => {
+        alert(value);
+    });
+    function unique(arr) {
+        /* your code */
+    }
+
+    let values = ["Hare", "Krishna", "Hare", "Krishna",
+        "Krishna", "Krishna", "Hare", "Hare", ":-O"
+    ];
+
+    alert( unique(values) ); // Hare, Krishna, :-O
+</script>
+<script>
+    let [firstName, surname] = "John Smith".split(' ');
+    alert(firstName); // John
+    alert(surname);  // Smith
+    let now = new Date();
+    alert( now ); // shows current date/time
+    let Jan01_1970 = new Date(0);
+    alert( Jan01_1970 );
+
+    // now add 24 hours, get 02.01.1970 UTC+0
+    let Jan02_1970 = new Date(24 * 3600 * 1000);
+    alert( Jan02_1970 );
+    let Dec31_1969 = new Date(-24 * 3600 * 1000);
+    alert( Dec31_1969 );
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30,
+
+        toString() {
+            return `{name: "${this.name}", age: ${this.age}}`;
+        }
+    };
+    alert(user); // {name: "John", age: 30}
+    let student = {
+        name: 'John',
+        age: 30,
+        isAdmin: false,
+        courses: ['html', 'css', 'js'],
+        spouse: null
+    };
+    let json = JSON.stringify(student);
+
+    alert(typeof json); // we've got a string!
+
+    alert(json);
+    alert( JSON.stringify(1) ) // 1
+
+    // a string in JSON is still a string, but double-quoted
+    alert( JSON.stringify('test') ) // "test"
+
+    alert( JSON.stringify(true) ); // true
+
+    alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
+    let user = {
+        sayHi() { // ignored
+            alert("Hello");
+        },
+        [Symbol("id")]: 123, // ignored
+        something: undefined // ignored
+    };
+
+    alert( JSON.stringify(user) ); // {} (empty object)
+    let meetup = {
+        title: "Conference",
+        room: {
+            number: 23,
+            participants: ["john", "ann"]
+        }
+    };
+
+    alert( JSON.stringify(meetup) );
+    let room = {
+        number: 23
+    };
+
+    let meetup = {
+        title: "Conference",
+        participants: ["john", "ann"]
+    };
+
+    meetup.place = room;       // meetup references room
+    room.occupiedBy = meetup; // room references meetup
+
+    JSON.stringify(meetup);
+
+</script>
+</body>
+</html>

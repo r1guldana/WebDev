@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ 2</title>
+</head>
+<body>
+<script>
+
+function hello(name) {
+let phrase = `Hello, ${name}!`;
+
+debugger;  // <-- the debugger stops here
+
+say(phrase);
+}
+// open console to see
+for (let i = 0; i < 5; i++) {
+    console.log("value,", i);
+}
+if (n < 0) {alert(`Power ${n} is not supported`);}
+function pow(x, n) {
+    let result = 1;
+    //              <--
+    for (let i = 0; i < n; i++) {
+        result *= x;
+    }
+    //              <--
+    return result;
+}
+for (let i = 0; i < 10; i++) {
+    if (cond) {
+    ... // <- one more nesting level
+    }
+}
+function pow(x, n) {
+    if (n < 0) {
+        alert("Negative 'n' not supported");
+    } else {
+        let result = 1;
+
+        for (let i = 0; i < n; i++) {
+            result *= x;
+        }
+
+        return result;
+    }
+}
+function pow(x, n) {
+    if (n < 0) {
+        alert("Negative 'n' not supported");
+        return;
+    }
+
+    let result = 1;
+
+    for (let i = 0; i < n; i++) {
+        result *= x;
+    }
+
+    return result;
+}
+// function declarations
+function createElement() {
+...
+}
+
+function setHandler(elem) {
+...
+}
+
+function walkAround() {
+...
+}
+
+// the code which uses them
+let elem = createElement();
+setHandler(elem);
+walkAround();
+
+for(let i = 0; i < 10; i++) {
+    let drop = getWhiskey();
+    smell(drop);
+    add(drop, glass);
+}
+
+// here we add juice
+for(let t = 0; t < 3; t++) {
+    let tomato = getTomato();
+    examine(tomato);
+    let juice = press(tomato);
+    add(juice, glass);
+}
+
+addWhiskey(glass);
+addJuice(glass);
+
+function addWhiskey(container) {
+    for(let i = 0; i < 10; i++) {
+        let drop = getWhiskey();
+        //...
+    }
+}
+
+function addJuice(container) {
+    for(let t = 0; t < 3; t++) {
+        let tomato = getTomato();
+        //...
+    }
+}
+function ninjaFunction(elem) {
+    // 20 lines of code working with elem
+
+    elem = clone(elem);
+
+    // 20 more lines, now working with the clone of the elem!
+}
+describe("pow", function() {
+
+    it("raises to n-th power", function() {
+        assert.equal(pow(2, 3), 8);
+    });
+
+});
+
+</script>
+<script>
+    function pow(x, n) {
+        /* function code is to be written, empty now */
+    }
+</script>
+
+<!-- the script with tests (describe, it...) -->
+<script src="test.js"></script>
+
+<!-- the element with id="mocha" will contain test results -->
+<div id="mocha"></div>
+
+<!-- run tests! -->
+<script>
+    mocha.run();
+</script>
+<script>
+    function pow(x, n) {
+        return 8; // :) we cheat!
+    }
+    describe("pow", function() {
+
+        it("raises to n-th power", function() {
+            assert.equal(pow(2, 3), 8);
+            assert.equal(pow(3, 4), 81);
+        });
+
+    });
+
+</script>
+<script>
+    describe("pow", function() {
+
+        it("2 raised to power 3 is 8", function() {
+            assert.equal(pow(2, 3), 8);
+        });
+
+        it("3 raised to power 4 is 81", function() {
+            assert.equal(pow(3, 4), 81);
+        });
+
+    });
+</script>
+<script>
+    describe("pow", function() {
+
+        function makeTest(x) {
+            let expected = x * x * x;
+            it(`${x} in the power 3 is ${expected}`, function() {
+                assert.equal(pow(x, 3), expected);
+            });
+        }
+
+        for (let x = 1; x <= 5; x++) {
+            makeTest(x);
+        }
+
+    });
+</script>
+<script>
+    describe("test", function() {
+
+        before(() => alert("Testing started – before all tests"));
+        after(() => alert("Testing finished – after all tests"));
+
+        beforeEach(() => alert("Before a test – enter a test"));
+        afterEach(() => alert("After a test – exit a test"));
+
+        it('test 1', () => alert(1));
+        it('test 2', () => alert(2));
+
+    });
+</script>
+<script>
+    function pow(x, n) {
+        if (n < 0) return NaN;
+        if (Math.round(n) != n) return NaN;
+
+        let result = 1;
+
+        for (let i = 0; i < n; i++) {
+            result *= x;
+        }
+
+        return result;
+    }
+</script>
+<script>
+    it("Raises x to the power n", function() {
+        let x = 5;
+
+        let result = x;
+        assert.equal(pow(x, 1), result);
+
+        result *= x;
+        assert.equal(pow(x, 2), result);
+
+        result *= x;
+        assert.equal(pow(x, 3), result);
+    });
+</script>
+<script>
+    // before running the transpiler
+    height = height ?? 100;
+
+    // after running the transpiler
+    height = (height !== undefined && height !== null) ? height : 100;
+</script>
+<script>
+    if (!Math.trunc) { // if no such function
+                       // implement it
+        Math.trunc = function(number) {
+            // Math.ceil and Math.floor exist even in ancient JavaScript engines
+            // they are covered later in the tutorial
+            return number < 0 ? Math.ceil(number) : Math.floor(number);
+        };
+    }
+</script>
+<script>
+
+</script>
+</body>
+</html>
