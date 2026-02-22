@@ -1,0 +1,52 @@
+<div class="product-card">
+  <div class="image-gallery">
+    <img [src]="product().images[currentImageIndex]" [alt]="product().name" class="main-image">
+
+    @if (product().images.length > 1) {
+      <button class="nav-btn prev" (click)="previousImage()">❮</button>
+      <button class="nav-btn next" (click)="nextImage()">❯</button>
+
+      <div class="thumbnails">
+        @for (image of product().images; track image; let i = $index) {
+          <img
+            [src]="image"
+            [alt]="'Thumbnail ' + (i + 1)"
+            class="thumbnail"
+            [class.active]="i === currentImageIndex"
+            (click)="setImage(i)">
+        }
+      </div>
+    }
+  </div>
+
+  <div class="product-info">
+    <h3 class="product-name">{{ product().name }}</h3>
+    <p class="product-description">{{ product().description }}</p>
+
+    <div class="rating">
+      @for (star of getStars(product().rating); track star) {
+        <span class="star" [class.filled]="isStarFilled(star)">★</span>
+      }
+      <span class="rating-value">({{ product().rating }})</span>
+    </div>
+
+    <div class="price-section">
+      <span class="price">{{ product().price }} ₸</span>
+      <span class="installment">В рассрочку {{ (product().price / 3).toFixed(0) }} ₸ x3</span>
+    </div>
+
+    <div class="likes-section">
+      <button class="like-btn" (click)="onLike()">
+        <span class="heart">❤</span>
+        <span class="likes-count">{{ product().likes }}</span>
+      </button>
+    </div>
+
+    <div class="actions">
+      <a [href]="product().link" target="_blank" class="btn btn-primary">Купить</a>
+      <button class="btn btn-share" (click)="shareOnWhatsApp()">WhatsApp</button>
+      <button class="btn btn-share" (click)="shareOnTelegram()">Telegram</button>
+      <button class="btn btn-delete" (click)="onDelete()">🗑️</button>
+    </div>
+  </div>
+</div>
