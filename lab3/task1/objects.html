@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let user = new Object(); // "object constructor" syntax
+    let user = {     // an object
+        name: "John",  // by key "name" store value "John"
+        age: 30        // by key "age" store value 30
+    };
+    alert( user.name ); // John
+    alert( user.age ); // 30
+    user.isAdmin = true;
+    delete user.age;
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30,
+        "likes birds": true  // multiword property name must be quoted
+    };
+    user.likes birds = true
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30
+    };
+
+    let key = prompt("What do you want to know about the user?", "name");
+
+    // access by variable
+    alert( user[key] ); // John (if enter "name")
+</script>
+<script>
+    let fruit = prompt("Which fruit to buy?", "apple");
+
+    let bag = {
+        [fruit]: 5, // the name of the property is taken from the variable fruit
+    };
+
+    alert( bag.apple ); // 5 if fruit="apple"
+</script>
+<script>
+    function makeUser(name, age) {
+        return {
+            name: name,
+            age: age,
+            // ...other properties
+        };
+    }
+
+    let user = makeUser("John", 30);
+    alert(user.name); // John
+
+</script>
+<script>
+    function makeUser(name, age) {
+        return {
+            name, // same as name: name
+            age,  // same as age: age
+            // ...
+        };
+    }
+</script>
+<script>
+    // these properties are all right
+    let obj = {
+        for: 1,
+        let: 2,
+        return: 3
+    };
+
+    alert( obj.for + obj.let + obj.return );  // 6
+</script>
+<script>
+    let obj = {
+        0: "test" // same as "0": "test"
+    };
+
+    // both alerts access the same property (the number 0 is converted to string "0")
+    alert( obj["0"] ); // test
+    alert( obj[0] ); // test (same property)
+    let user = {};
+
+    alert( user.noSuchProperty === undefined ); // true means "no such property"
+</script>
+<script>
+    let obj = {
+        test: undefined
+    };
+
+    alert( obj.test ); // it's undefined, so - no such property?
+
+    alert( "test" in obj ); // true, the property does exist!
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30,
+        isAdmin: true
+    };
+
+    for (let key in user) {
+        // keys
+        alert( key );  // name, age, isAdmin
+        // values for the keys
+        alert( user[key] ); // John, 30, true
+    }
+</script>
+<script>let codes = {
+    "49": "Germany",
+    "41": "Switzerland",
+    "44": "Great Britain",
+    // ..,
+    "1": "USA"
+};
+
+for (let code in codes) {
+    alert(code); // 1, 41, 44, 49
+}</script>
+<script>
+    let codes = {
+        "+49": "Germany",
+        "+41": "Switzerland",
+        "+44": "Great Britain",
+        // ..,
+        "+1": "USA"
+    };
+
+    for (let code in codes) {
+        alert( +code ); // 49, 41, 44, 1
+    }
+</script>
+<script>
+    let user = { name: 'John' };
+
+    let admin = user;
+
+    admin.name = 'Pete'; // changed by the "admin" reference
+
+    alert(user.name); // 'Pete', changes are seen from the "user" reference
+</script>
+<script>
+    let a = {};
+    let b = a; // copy the reference
+
+    alert( a == b ); // true, both variables reference the same object
+    alert( a === b ); // true
+</script>
+<script>
+    const user = {
+        name: "John"
+    };
+
+    user.name = "Pete"; // (*)
+
+    alert(user.name); // Pete
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30
+    };
+
+    let clone = {}; // the new empty object
+
+    // let's copy all user properties into it
+    for (let key in user) {
+        clone[key] = user[key];
+    }
+
+    // now clone is a fully independent object with the same content
+    clone.name = "Pete"; // changed the data in it
+
+    alert( user.name ); // still John in the original object
+</script>
+<script>
+    let user = { name: "John" };
+
+    let permissions1 = { canView: true };
+    let permissions2 = { canEdit: true };
+
+    // copies all properties from permissions1 and permissions2 into user
+    Object.assign(user, permissions1, permissions2);
+
+    // now user = { name: "John", canView: true, canEdit: true }
+    alert(user.name); // John
+    alert(user.canView); // true
+    alert(user.canEdit); // true
+</script>
+<script>
+    let user = {
+        name: "John",
+        sizes: {
+            height: 182,
+            width: 50
+        }
+    };
+
+    let clone = Object.assign({}, user);
+
+    alert( user.sizes === clone.sizes ); // true, same object
+
+    // user and clone share sizes
+    user.sizes.width = 60;    // change a property from one place
+    alert(clone.sizes.width); // 60, get the result from the other one
+</script>
+<script>
+    let user = {
+        name: "John",
+        sizes: {
+            height: 182,
+            width: 50
+        }
+    };
+
+    let clone = structuredClone(user);
+
+    alert( user.sizes === clone.sizes ); // false, different objects
+
+    // user and clone are totally unrelated now
+    user.sizes.width = 60;    // change a property from one place
+    alert(clone.sizes.width); // 50, not related
+</script>
+<script>
+    // user has a reference to the object
+    let user = {
+        name: "John"
+    };
+
+    let admin = user;
+    user = null;
+</script>
+<script>
+    function marry(man, woman) {
+        woman.husband = man;
+        man.wife = woman;
+
+        return {
+            father: man,
+            mother: woman
+        }
+    }
+
+    let family = marry({
+        name: "John"
+    }, {
+        name: "Ann"
+    });
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30
+    };
+
+    user.sayHi = function() {
+        alert("Hello!");
+    };
+
+    user.sayHi(); // Hello!
+</script>
+<script>
+    let user = {
+        // ...
+    };
+
+    // first, declare
+    function sayHi() {
+        alert("Hello!");
+    }
+
+    // then add as a method
+    user.sayHi = sayHi;
+
+    user.sayHi(); // Hello!
+</script>
+<script>
+    user = {
+        sayHi: function() {
+            alert("Hello");
+        }
+    };
+
+    // method shorthand looks better, right?
+    user = {
+        sayHi() { // same as "sayHi: function(){...}"
+            alert("Hello");
+        }
+    };
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30,
+
+        sayHi() {
+            // "this" is the "current object"
+            alert(this.name);
+        }
+
+    };
+
+    user.sayHi(); // John
+</script>
+<script>
+    let user = {
+        name: "John",
+        age: 30,
+
+        sayHi() {
+            alert(user.name); // "user" instead of "this"
+        }
+
+    };
+</script>
+<script>
+    let user = { name: "John" };
+    let admin = { name: "Admin" };
+
+    function sayHi() {
+        alert( this.name );
+    }
+
+    // use the same function in two objects
+    user.f = sayHi;
+    admin.f = sayHi;
+
+    // these calls have different this
+    // "this" inside the function is the object "before the dot"
+    user.f(); // John  (this == user)
+    admin.f(); // Admin  (this == admin)
+
+    admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)
+</script>
+<script>
+    function User(name) {
+        this.name = name;
+        this.isAdmin = false;
+    }
+
+    let user = new User("Jack");
+
+    alert(user.name); // Jack
+    alert(user.isAdmin); // false
+</script>
+<script>
+    let user = {
+        name: "Jack",
+        isAdmin: false
+    };
+    let user = new function() {
+        this.name = "John";
+        this.isAdmin = false;
+    };
+</script>
+<script>
+    function BigUser() {
+
+        this.name = "John";
+
+        return { name: "Godzilla" };  // <-- returns this object
+    }
+
+    alert( new BigUser().name );  // Godzilla, got that object
+</script>
+<script>
+    function SmallUser() {
+
+        this.name = "John";
+
+        return; // <-- returns this
+    }
+
+    alert( new SmallUser().name );  // John
+</script>
+<script>
+    function User(name) {
+        this.name = name;
+
+        this.sayHi = function() {
+            alert( "My name is: " + this.name );
+        };
+    }
+
+    let john = new User("John");
+
+    john.sayHi(); // My name is: John
+
+
+    john = {
+       name: "John",
+       sayHi: function() {}
+    };
+    let user = {};
+
+    alert(user.address ? user.address.street : undefined);
+    alert(user.address ? user.address.street ? user.address.street.name : null : null);
+    alert( user.address && user.address.street && user.address.street.name ); // undefined (no error)
+    alert( user?.address?.street ); // undefined (no error)
+    let html = document.querySelector('.elem')?.innerHTML; // will be undefined, if there's no element
+    alert( user?.address ); // undefined
+    alert( user?.address.street ); // undefined
+</script>
+<script>
+    let user = null;
+    let x = 0;
+
+    user?.sayHi(x++); // no "user", so the execution doesn't reach sayHi call and x++
+
+    alert(x); // 0, value not incremented
+    let userAdmin = {
+        admin() {
+            alert("I am admin");
+        }
+    };
+
+    let userGuest = {};
+
+    userAdmin.admin?.(); // I am admin
+
+    userGuest.admin?.(); // nothing happens (no such method)
+    let key = "firstName";
+
+    let user1 = {
+        firstName: "John"
+    };
+
+    let user2 = null;
+
+    alert( user1?.[key] ); // John
+    alert( user2?.[key] ); // undefined
+</script>
+<script>
+    let id1 = Symbol("id");
+    let id2 = Symbol("id");
+    let id =  Symbol("id");
+    alert(id1 == id2); // false
+    alert(id);
+    alert(id.description); // id
+
+</script>
+<script>
+    let user = { // belongs to another code
+        name: "John"
+    };
+
+    let id = Symbol("id");
+
+    user[id] = 1;
+
+    alert( user[id] );
+</script>
+<script>
+    let user = { name: "John" };
+
+    // Our script uses "id" property
+    user.id = "Our id value";
+
+    // ...Another script also wants "id" for its purposes...
+
+    user.id = "Their id value"
+    // Boom! overwritten by another script!
+</script>
+<script>
+    let num = Number(obj);
+
+    // maths (except binary plus)
+    let n = +obj; // unary plus
+    let delta = date1 - date2;
+
+    // less/greater comparison
+    let greater = user1 > user2;
+</script>
+<script>
+    let user = {
+        name: "John",
+        money: 1000,
+
+        [Symbol.toPrimitive](hint) {
+            alert(`hint: ${hint}`);
+            return hint == "string" ? `{name: "${this.name}"}` : this.money;
+        }
+    };
+
+    // conversions demo:
+    alert(user); // hint: string -> {name: "John"}
+    alert(+user); // hint: number -> 1000
+    alert(user + 500); // hint: default -> 1500
+</script>
+<script>
+    let user = {
+        name: "John",
+
+        toString() {
+            return this.name;
+        }
+    };
+
+    alert(user); // toString -> John
+    alert(user + 500); // toString -> John500
+</script>
+<script>
+    let obj = {
+        // toString handles all conversions in the absence of other methods
+        toString() {
+            return "2";
+        }
+    };
+
+    alert(obj * 2);
+</script>
+<script>
+    let obj = {
+        toString() {
+            return "2";
+        }
+    };
+
+    alert(obj + 2);
+</script>
+<script>
+
+</script>
+</body>
+</html>

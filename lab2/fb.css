@@ -1,0 +1,109 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f6f6f6;
+}
+
+#fb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+
+
+}
+
+#left_side {
+    padding: 212px 0 46px;
+    display: block;
+    left: 300px;
+
+
+}
+
+#fb_img {
+    display: flex;
+
+    height: 106px;
+    margin: -28px;
+
+}
+
+
+#fb_text {
+    margin-bottom: 20px;
+    padding: 50px 0 16px;
+    font-family:  Arial,sans-serif;
+    font-weight: lighter;
+    line-height: 32px;
+    font-size: medium;
+
+}
+
+
+#reg {
+    padding: 110px 0 26px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    float: right;
+    margin: 0;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    gap: 16px
+}
+
+.btn {
+    background: #1877F2;
+
+    border: none;
+    line-height: 48px;
+    border-radius: 8px;
+    margin: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+#email, #pass {
+    padding: 2px;
+    line-height: 48px;
+    border-radius: 5px;
+    border-color: #d1d6cf;
+    margin: 16px;
+}
+
+.new {
+    background:  #42b72a;;
+    border: none;
+    line-height: 48px;
+    border-radius: 8px;
+    margin: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+.links{
+    display: flex;
+    justify-content: center;
+    color: #1877f2;
+    font-size: 24px;
+    font-weight: 500;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.space{
+    display: inline-block;
+    position: relative;
+    color: #96999e;
+}
