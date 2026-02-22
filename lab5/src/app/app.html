@@ -18,7 +18,7 @@
   <main class="main-content">
     @if (selectedCategoryId) {
       <div class="category-header">
-        <!-- ИСПРАВЛЕНО: используем метод getCategoryName() -->
+
         <h2>Товары в категории "{{ getCategoryName(selectedCategoryId) }}"</h2>
       </div>
       <app-product-list
