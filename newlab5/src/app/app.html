@@ -1,0 +1,36 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>Kaspi.kz Магазин</h1>
+    <p>Выберите категорию товаров</p>
+  </header>
+
+  <div class="categories">
+    @for (category of categories; track category.id) {
+      <button
+        class="category-btn"
+        [class.active]="selectedCategoryId === category.id"
+        (click)="selectCategory(category.id)">
+        {{ category.name }}
+      </button>
+    }
+  </div>
+
+  <main class="main-content">
+    @if (selectedCategoryId) {
+      <div class="category-header">
+
+        <h2>Товары в категории "{{ getCategoryName(selectedCategoryId) }}"</h2>
+      </div>
+      <app-product-list
+        [products]="products"
+        (like)="onLike($event)"
+        (delete)="onDelete($event)">
+      </app-product-list>
+    } @else {
+      <div class="welcome-message">
+        <h2>Добро пожаловать в наш магазин!</h2>
+        <p>Пожалуйста, выберите категорию товаров из меню выше</p>
+      </div>
+    }
+  </main>
+</div>
