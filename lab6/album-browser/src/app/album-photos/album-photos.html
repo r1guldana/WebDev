@@ -1,0 +1,28 @@
+<div class="photos-container">
+  <div class="header">
+    <div>
+      <h2>Album Photos <span class="photo-count">{{ photos.length }}</span></h2>
+    </div>
+    <button class="btn-back" (click)="goBack()">← Back</button>
+  </div>
+
+  @if (photos.length > 0) {
+    <div class="photo-grid">
+      @for (photo of photos; track photo.id) {
+        <div class="photo-card">
+          <img [src]="photo.thumbnailUrl" [alt]="photo.title" class="photo-image" />
+          <div class="photo-info">
+            <p class="photo-title">{{ photo.title }}</p>
+            <span class="photo-id">ID: {{ photo.id }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <div class="empty-icon">📷</div>
+      <p class="empty-text">No photos found</p>
+      <button class="btn-empty" (click)="goBack()">Go Back</button>
+    </div>
+  }
+</div>
