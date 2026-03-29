@@ -1,13 +1,13 @@
 <div class="container">
 
-  <h1>Albums ({{ albums.length }})</h1>
+  <h1>Albums ({{ (albums$ | async)?.length || 0 }})</h1>
   @if (loading) {
     <div class="loading">
       Loading albums...
     </div>
   } @else {
     <div class="albums-list">
-      @for (album of albums; track album.id) {
+      @for (album of albums$  | async ; track album.id) {
         <div class="album-item">
           <div class="album-content" [routerLink]="['/albums', album.id]">
             <span class="album-id">#{{ album.id }}</span>

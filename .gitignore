@@ -1,4 +1,4 @@
-HEAD
+AHEAD
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
@@ -45,4 +45,9 @@ __screenshots__/
 Thumbs.db
 
 node_modules
->>>>>>> cacbcf9aa1ffb2e8ccfbf2afedecabdfbe974ef0
+# Python & Django
+**/venv/
+**/__pycache__/
+**/db.sqlite3
+*.pyc
+.env

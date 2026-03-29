@@ -1,8 +1,10 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AlbumService } from '../services/album-service';
 import { Album } from '../album';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-albums',
   standalone: true,
@@ -11,33 +13,29 @@ import { Album } from '../album';
   styleUrl: './albums.css',
 })
 export class Albums implements OnInit {
-  albums: Album[] = [];
+  albums$: Observable<Album[] | null>;
   loading = true;
 
-  constructor(
-    private albumService: AlbumService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private albumService: AlbumService) {
+    this.albums$ = this.albumService.albums$;
+  }
 
   ngOnInit(): void {
     console.log('Loading albums...');
 
-    this.albumService.getAlbums().subscribe({
-      next: (data) => {
-        console.log('DATA RECEIVED', data);
-        this.albums = data;
+    this.albumService.loadAlbums();
+
+    this.albums$.subscribe((albums) => {
+      console.log('Albums updated:', albums);
+      if (albums) {
         this.loading = false;
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error('ERROR', err);
       }
     });
   }
 
   deleteAlbum(id: number) {
-    this.albumService.deleteAlbum(id).subscribe(() => {
-      this.albums = this.albums.filter(album => album.id !== id);
+    this.albumService.deleteAlbum(id).subscribe({
+      error: (err) => console.error('Error deleting album:', err)
     });
   }
 }

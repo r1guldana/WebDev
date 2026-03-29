@@ -47,6 +47,9 @@
       <button class="btn btn-share" (click)="shareOnWhatsApp()">WhatsApp</button>
       <button class="btn btn-share" (click)="shareOnTelegram()">Telegram</button>
       <button class="btn btn-delete" (click)="onDelete()">🗑️</button>
+      <button (click)="ToggleFavorite()">
+        {{ product().isFavorite ? '⭐ In Favorites' : '⭐ Add to Favorites' }}
+      </button>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import {Component, EventEmitter, input, Output, output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product.model';
 
@@ -13,6 +13,7 @@ export class ProductItem {
   product = input.required<Product>();
   like = output<number>();
   delete = output<number>();
+  favorite = output<number>();
 
   currentImageIndex = 0;
 
@@ -58,4 +59,9 @@ export class ProductItem {
   setImage(index: number): void {
     this.currentImageIndex = index;
   }
+
+  ToggleFavorite(): void {
+    this.favorite.emit(this.product().id);
+  }
+
 }

@@ -10,10 +10,14 @@ import { Product } from '../../models/product.model';
   templateUrl: './product-list.html',
   styleUrls: ['./product-list.css']
 })
+
+
 export class ProductList {
   products = input.required<Product[]>();
   like = output<number>();
   delete = output<number>();
+  favorites: Product[] = [];
+  favorite = output<number>();
 
   onLike(productId: number): void {
     this.like.emit(productId);
@@ -22,4 +26,13 @@ export class ProductList {
   onDelete(productId: number): void {
     this.delete.emit(productId);
   }
+  toggleFavorite(productId: number): void {
+    const product = this.products().find(p => p.id === productId);
+    if (!product) return;
+
+    product.isFavorite = !product.isFavorite;
+    this.favorites = this.products().filter(p => p.isFavorite);
+    this.favorite.emit(productId);
+  }
+
 }

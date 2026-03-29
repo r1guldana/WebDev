@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Create New Album</h2>
+
+  <div class="form-group">
+    <label>User ID 1-10 :</label>
+    <input
+      type="number"
+      [(ngModel)]="album.userId"
+      min="1"
+      max="10"
+      placeholder="Enter user ID:"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Title (min 3 characters):</label>
+    <input
+      type="text"
+      [(ngModel)]="album.title"
+      placeholder="Enter album title"
+    />
+  </div>
+
+  <div class="actions">
+    <button (click)="create()">Create</button>
+    <button (click)="cancel()">Cancel</button>
+  </div>
+</div>

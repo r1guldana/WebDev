@@ -29,7 +29,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/apple-iphone-13-128gb-chernyi-102298404/',
       categoryId: 1,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 2,
@@ -45,7 +46,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/samsung-galaxy-a16-6-gb-128-gb-chernyi-130609900/?c=750000000',
       categoryId: 1,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 3,
@@ -61,7 +63,8 @@ export class ProductService {
       ],
       link: 'https://resources.cdn-kaspi.kz/img/m/p/h9e/h8a/87310437154846.jpg?format=gallery-medium',
       categoryId: 1,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 4,
@@ -77,7 +80,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/motorola-g86-power-8-gb-512-gb-zelenyi-147084655/?c=750000000',
       categoryId: 1,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 5,
@@ -93,7 +97,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/redmi-15c-nfc-8-gb-256-gb-chernyi-144392065/?c=750000000',
       categoryId: 1,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
 
     // Ноутбуки (categoryId: 2)
@@ -111,7 +116,8 @@ export class ProductService {
       ],
       link: 'https://resources.cdn-kaspi.kz/img/m/p/pab/pc3/35723922.jpg?format=gallery-medium',
       categoryId: 2,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 7,
@@ -127,7 +133,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/lenovo-ideapad-3-15-6-8-gb-ssd-512-gb-win-11-15iau7-82rk00ewrk-107333284/?c=750000000',
       categoryId: 2,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 8,
@@ -143,7 +150,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/hydra-home-h14-14-12-gb-ssd-256-gb-win-11-mkii-119194958/?c=750000000',
       categoryId: 2,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 9,
@@ -159,7 +167,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/asus-tuf-a15-fa506-15-6-16-gb-ssd-512-gb-bez-os-90nr0jf7-m00je0-148010487/?c=750000000',
       categoryId: 2,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 10,
@@ -175,7 +184,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/thunderobot-911-plus-sd-17-3-16-gb-ssd-512-gb-bez-os-jt009800kru-142619054/?c=750000000',
       categoryId: 2,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
 
     // Наушники (categoryId: 3)
@@ -193,7 +203,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/naushniki-apple-earpods-lightning-belyi-4801876/?c=750000000',
       categoryId: 3,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 12,
@@ -209,7 +220,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/naushniki-sony-wh-1000xm6-chernyi-140045244/?c=750000000',
       categoryId: 3,
-      likes: 999
+      likes: 999,
+      isFavorite: false
     },
     {
       id: 13,
@@ -225,7 +237,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/naushniki-jbl-tune-510bt-chernyi-101420081/?c=750000000',
       categoryId: 3,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 14,
@@ -241,7 +254,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/naushniki-xiaomi-mi-true-wireless-earbuds-basic-airdots-ej04ls-chernyi-4804295/?c=750000000',
       categoryId: 3,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
     {
       id: 15,
@@ -257,7 +271,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/naushniki-bose-quietcomfort-45-chernyi-102978612/?c=750000000',
       categoryId: 3,
-      likes: 0
+      likes: 0,
+      isFavorite: false
     },
 
     // Планшеты categoryId: 4
@@ -274,7 +289,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/apple-ipad-pro-11-2024-wi-fi-11-djuim-8-gb-256-gb-chernyi-119774227/?c=750000000',
       categoryId: 4,
-      likes: 21
+      likes: 21,
+      isFavorite: false
     },
     {
       id: 17,
@@ -290,7 +306,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/samsung-galaxy-tab-s9-sm-x716bzaas-11-djuim-8-gb-128-gb-grafit-112488621/?c=750000000',
       categoryId: 4,
-      likes: 79
+      likes: 79,
+      isFavorite: false
     },
     {
       id: 18,
@@ -306,7 +323,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/xiaomi-pad-6-11-djuim-8-gb-256-gb-seryi-112453226/?c=750000000',
       categoryId: 4,
-      likes: 67
+      likes: 67,
+      isFavorite: false
     },
     {
       id: 19,
@@ -322,7 +340,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/lenovo-tab-p11-plus-tb-j616f-za940326ru-11-djuim-4-gb-128-gb-seryi-109848413/?c=750000000',
       categoryId: 4,
-      likes: 10
+      likes: 10,
+      isFavorite: false
     },
     {
       id: 20,
@@ -338,7 +357,8 @@ export class ProductService {
       ],
       link: 'https://kaspi.kz/shop/p/huawei-matepad-se-ags6-w09-11-djuim-6-gb-128-gb-seryi-122142537/?c=750000000',
       categoryId: 4,
-      likes: 222
+      likes: 222,
+      isFavorite: false
     }
   ];
 

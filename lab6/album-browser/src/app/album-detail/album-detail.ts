@@ -23,18 +23,32 @@ export class AlbumDetail implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const idParam = this.route.snapshot.paramMap.get('id');
+    console.log('ID param:', idParam); // для отладки
+
+    if (!idParam) {
+      console.error('No ID provided');
+      this.router.navigate(['/albums']);
+      return;
+    }
+
+    const id = Number(idParam);
     console.log('Loading album ID:', id);
+
+    if (isNaN(id)) {
+      console.error('Invalid ID:', idParam);
+      this.router.navigate(['/albums']);
+      return;
+    }
 
     this.albumService.getAlbum(id).subscribe({
       next: (data) => {
         console.log('Album loaded:', data);
         this.album = data;
-        this.cdr.detectChanges();
-        console.log('Album set, loading should disappear');
       },
       error: (err) => {
-        console.error('Error:', err);
+        console.error('Error loading album:', err);
+        this.router.navigate(['/albums']);
       }
     });
   }

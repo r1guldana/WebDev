@@ -4,6 +4,7 @@ import { About } from './about/about';
 import { Albums } from './albums/albums';
 import { AlbumDetail } from './album-detail/album-detail';
 import { AlbumPhotos } from './album-photos/album-photos';
+import { AlbumCreate } from './pages/album-create/album-create';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,6 +13,9 @@ export const routes: Routes = [
   { path: 'about', component: About },
 
   { path: 'albums', component: Albums },
-  { path: 'albums/:id', component: AlbumDetail },
-  { path: 'albums/:id/photos', component: AlbumPhotos }
+
+  { path: 'albums/:id/photos', component: AlbumPhotos },
+
+  { path: 'albums/new', component: AlbumCreate },
+  { path: 'albums/:id', component: AlbumDetail }
 ];
