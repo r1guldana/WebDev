@@ -6,7 +6,7 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, verbose_name="name of the product")
     price = models.FloatField()
     description = models.TextField()
     count = models.IntegerField()

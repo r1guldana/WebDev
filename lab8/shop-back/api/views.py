@@ -1,9 +1,21 @@
+from urllib import request
+
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import Product, Category
 
 def product_list(request):
     products = Product.objects.all()
+    category_id = request.GET.get("category")
+    if category_id: 
+        products = products.filter(category_id=category_id)
+
+    active = request.GET.get("active")
+    if active is not None:
+        products = products.filter(is_active=active)
+    search = request.GET.get("search")
+    if search:
+        products = products.filter(name__icontains=search)
     data = []
     for product in products:
         data.append({
@@ -15,6 +27,7 @@ def product_list(request):
             'is_active': product.is_active,
             'category': product.category.name
         })
+
     return JsonResponse(data, safe=False)
 
 def product_detail(request, id):
