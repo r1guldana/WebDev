@@ -1,0 +1,8 @@
+$kind: http-request
+name: Delete Category
+url: http://127.0.0.1:8000/api/categories/1/
+method: DELETE
+body:
+  type: json
+  content: ""
+order: 4485250324526814

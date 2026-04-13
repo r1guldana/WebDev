@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get Category By ID
+url: http://127.0.0.1:8000/api/categories/1/
+method: GET
+order: 2741567302883811
